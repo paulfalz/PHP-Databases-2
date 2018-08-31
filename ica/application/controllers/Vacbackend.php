@@ -21,5 +21,55 @@ class Vacbackend extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('vacbackend');
+
+		$data = array();
+    if($query = $this->Vacancy_Model->get_records()){
+      $data['records'] = $query;
+    }
+      $arr = $_SERVER['REQUEST_URI'];
+      if (preg_match('#[0-9]#',$arr)){
+        $questionmark = explode('?', $arr);
+        $number = $questionmark[1];
+        if(is_numeric ($number)){
+          $this->load->view('editvacbackend');
+        }else{
+          //LOAD TABLE (because ? without no ?id)
+          $this->load->view('tbl_vacancy',$data);
+        }
+      }else{
+          //LOAD TABLE (becuase there is no ?id)
+          $this->load->view('tbl_vacancy',$data);
+      }
+
+  } // end index
+
+  function create()
+  {
+    $data = array(
+      'job_place' => $this->input->post('job_place'),
+      'job_subject' => $this->input->post('job_subject'),
+	  'job_type' => $this->input->post('job_type')
+    );
+
+    $this->Vacancy_Model->add_record($data);
+    $this->index();
+  }
+
+  function update(){
+    $id = $this->input->post('id'); // send id to model
+      $data['job_place'] = $this->input->post('job_place');
+      $data['job_subject'] = $this->input->post('job_subject');
+	  $data['job_type'] = $this->input->post('job_type');
+    $this->Vacancy_Model->update_record($data, $id);
+  }
+
+
+
+
+  function delete()
+  {
+    $this->Vacancy_Model->delete_row();
+    $this->index();
+  }
 	}
 }

@@ -32,14 +32,14 @@ class Canclectbackend extends CI_Controller {
         $questionmark = explode('?', $arr);
         $number = $questionmark[1];
         if(is_numeric ($number)){
-          $this->load->view('edit_record');
+          $this->load->view('edit_canclecbackend');
         }else{
           //LOAD TABLE (because ? without no ?id)
-          $this->load->view('options_view',$data);
+          $this->load->view('tbl_canclect',$data);
         }
       }else{
           //LOAD TABLE (becuase there is no ?id)
-          $this->load->view('options_view',$data);
+          $this->load->view('tbl_canclect',$data);
 	}
 }
 	function create()
