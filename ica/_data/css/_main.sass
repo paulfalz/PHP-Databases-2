@@ -1,0 +1,65 @@
+// main: style.sass
+/* Add a black background color to the top navigation */
+body
+    background-color: black
+    margin-top: 50px
+    color: black
+
+@media only screen and (max-width:800px)
+  /* For tablets: */
+  .main
+      width: 80%
+      padding: 0
+  .right
+      width: 100%
+
+@media only screen and (max-width:500px)
+  /* For mobile phones: */
+  .menu, .main, .right
+      width: 100%
+      
+img
+    margin-top: 8px
+
+p
+    font-size: $contentsize
+    padding: 0px 10px
+    color: white
+    margin-top: 10px
+    margin-bottom: 2px
+    text-align: left
+
+/* Style the links inside the navigation bar */
+.navbar a
+    float: left
+    color: white !important
+    text-align: center !important
+    padding: 1px 8px !important
+    text-decoration: none !important
+    font-size: $header2 !important
+
+.navbar a.logo
+    padding: 0 !important
+
+/* Change the color of links on hover */
+.navbar a:hover
+    color: $active !important
+
+/* Add a color to the active/current link */
+.navbar a.active
+    color: $active !important
+
+.dropdown-item:focus, .dropdown-item:hover
+    background: transparent
+
+.dropdown:hover>.dropdown-menu
+  display: block
+
+footer
+    background-color: #1a1a1a
+    position: fixed
+    left: 0
+    bottom: 0
+    width: 100%
+    color: white
+    text-align: center
