@@ -14,7 +14,7 @@
   $arr = $_SERVER['REQUEST_URI'];
   $questionmark = explode('?', $arr);
   $id = $questionmark[1];
-  $query = $this->db->get_where('assets', array('id' => $id));
+  $query = $this->db->get_where('tbl_vacancy', array('id' => $id));
   if($query->result()){
     echo form_open('site/update');
     foreach ($query->result() as $row) {
@@ -38,7 +38,7 @@
       <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
       <p>
-        <input type="submit" value="UPDATE" />  
+        <input type="submit" value="UPDATE" />
       </p>
 
       <?php

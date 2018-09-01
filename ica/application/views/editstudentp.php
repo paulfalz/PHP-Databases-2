@@ -14,7 +14,7 @@
   $arr = $_SERVER['REQUEST_URI'];
   $questionmark = explode('?', $arr);
   $id = $questionmark[1];
-  $query = $this->db->get_where('assets', array('id' => $id));
+  $query = $this->db->get_where('tbl_portfolio', array('id' => $id));
   if($query->result()){
     echo form_open('site/update');
     foreach ($query->result() as $row) {

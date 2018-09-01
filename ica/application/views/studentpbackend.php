@@ -47,7 +47,7 @@
             </div>
         </nav>
             <div id="container-fluid" style= "padding: 30px;">
-                <?php echo form_open('staff_submit'); ?>
+                <?php echo form_open('studentp_submit'); ?>
                 <h1>Add Student</h1><hr/>
                 <?php if (isset($message)) { ?>
                 <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>

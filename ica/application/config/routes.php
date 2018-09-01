@@ -62,8 +62,14 @@ $route['register/submit'] = 'System/register_submit';
 $route['staffbackend'] = 'System/staff';
 $route['staff_submit'] = 'System/staff_submit';
 
-$route['Canclectbackend'] = 'System/Canclectbackend';
-$route['staff_submit'] = 'System/staff_submit';
+$route['canclectbackend'] = 'System/Canclectbackend';
+$route['canclect_submit'] = 'System/canclect_submit';
+
+$route['vacbackend'] = 'System/Vacbackendbackend';
+$route['vacbackend_submit'] = 'System/vacbackend_submit';
+
+$route['Studentpbackend'] = 'System/Studentpbackend';
+$route['studentp_submit'] = 'System/studentp_submit';
 
 //$route['staffeditbackend'] = 'system/staff';
 //$route['staff_edit'] = 'system/staff_submit';
