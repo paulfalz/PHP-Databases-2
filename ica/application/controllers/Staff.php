@@ -24,41 +24,35 @@ class Staff extends CI_Controller {
 		$this->load->view('staff');
 		$this->load->view('templates/bottom');
 
-		public function addstudentp()
+		public function add_staff()
 		{
 			$data = array(
-				'page_title'    => 'Student Portfolio',
+				'page_title'    => 'Staff',
 				'form_action'   => 'Enter/submit',
 				'form'          => array(
-					'student_name'         => array(
-						'type'          => 'student_name',
-						'placeholder'   => 'student_name',
-						'name'          => 'student_name',
-						'id'            => 'input-student_name'
+					'staff_name'         => array(
+						'type'          => 'staff_name',
+						'placeholder'   => 'staff_name',
+						'name'          => 'staff_name',
+						'id'            => 'input-staff_name'
 					),
-					'student_surname'         => array(
-						'type'          => 'student_surname',
-						'placeholder'   => 'student_surname',
-						'name'          => 'student_surname',
-						'id'            => 'input-student_surname'
+					'staff_surname'         => array(
+						'type'          => 'staff_surname',
+						'placeholder'   => 'staff_surname',
+						'name'          => 'staff_surname',
+						'id'            => 'input-staff_surname'
 					),
-					'course_name'      => array(
-						'type'          => 'course_name',
-						'placeholder'   => 'course_name',
-						'name'          => 'course_name',
-						'id'            => 'input-course_name'
+					'staff_subject'      => array(
+						'type'          => 'staff_subject',
+						'placeholder'   => 'staff_subject',
+						'name'          => 'staff_subject',
+						'id'            => 'input-staff_subject'
 					),
-					'course_level'      => array(
-						'type'          => 'course_level',
-						'placeholder'   => 'course_level',
-						'name'          => 'course_level',
-						'id'            => 'input-course_level'
-					),
-					'stud_link'      => array(
-						'type'          => 'stud_link',
-						'placeholder'   => 'stud_link',
-						'name'          => 'stud_link',
-						'id'            => 'input-stud_link'
+					'staff_email'      => array(
+						'type'          => 'staff_email',
+						'placeholder'   => 'staff_email',
+						'name'          => 'staff_email',
+						'id'            => 'input-staff_email'
 					)
 
 				),
@@ -73,27 +67,27 @@ class Staff extends CI_Controller {
 			$this->load->view('system/form', $data);
 
 		# canc lect submit
-			public function studentp_submit()
+			public function staff_submit()
 			{
 				# 1. Check the form for validation errors
-				if ($this->fv->run('studentp') === FALSE)
+				if ($this->fv->run('staff') === FALSE)
 				{
 					echo validation_errors();
 					return;
 				}
 
 				# 2. Retrieve the data for checking
-				$student_name      = $this->input->post('student_name');
-				$student_surname   = $this->input->post('student_surname');
-				$course_name   = $this->input->post('course_name');
+				$staff_name      = $this->input->post('staff_name');
+				$staff_surname   = $this->input->post('staff_surname');
+				$staff_subject   = $this->input->post('staff_subject');
 		#
-				$id = $this->system->add_studentp($student_name, $student_surname, $course_name, $course_level, $stud_link);
+				$id = $this->system->add_staff($staff_name, $staff_surname, $staff_subject, $staff_email);
 
-				$check = $this->system->studentp($student_name, $student_surname, $course_name, $course_level, $stud_link);
+				$check = $this->system->staff($staff_name, $staff_surname, $staff_subject, $staff_email);
 
 			if ($check === FALSE)
 			{
-				$this->system->delete_studentp($id);
+				$this->system->delete_staff($id);
 				echo "We couldn't register the  Student Portfolio because of a database error.";
 				return;
 			}

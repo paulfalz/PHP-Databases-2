@@ -25,19 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('lecturerbackend');?>">Lecturer</a>
+                            <a class="nav-link text-white" href="<?=site_url('staffbackend');?>">Staff</a>
                         </li>
                         <li class="nav-item acitve">
                             <a class="nav-link text-white" href="<?=site_url('canclectbackend');?>">Cancelled Lectures</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('studentportbackend');?>">Student Portfolio</a>
+                            <a class="nav-link text-white" href="<?=site_url('studentpbackend');?>">Student Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="<?=site_url('vacbackend');?>">Vacancies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('registerbackend');?>">Sign Up</a>
+                            <a class="nav-link text-white" href="<?=site_url('register');?>">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <?=  anchor('logout', 'Logout', 'class = nav-link'); ?>
@@ -46,10 +46,35 @@
                 </div>
             </div>
         </nav>
-        <div class="add_lecturer">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
-            </button>
+
+        <div id="container-fluid" style= "padding: 30px;">
+            <?php echo form_open('staff_submit'); ?>
+            <h1>Add Cancelled Lectures</h1><hr/>
+            <?php if (isset($message)) { ?>
+            <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
+            <?php } ?>
+            <?php echo form_label('course_name :'); ?> <?php echo form_error('course_name'); ?><br />
+            <?php echo form_input(array('id' => 'course_name', 'name' => 'course_name', 'placeholder' => 'course_name')); ?><br />
+
+            <?php echo form_label('course_level :'); ?> <?php echo form_error('course_level'); ?><br />
+            <?php echo form_input(array('id' => 'course_level', 'name' => 'course_level', 'placeholder' => 'course_level')); ?><br />
+
+            <?php echo form_label('course_group:'); ?> <?php echo form_error('course_group'); ?><br />
+            <?php echo form_input(array('id' => 'course_group', 'name' => 'course_group', 'placeholder' => 'course_group')); ?><br />
+
+            <?php echo form_label('course_subname :'); ?> <?php echo form_error('course_subname'); ?><br />
+            <?php echo form_input(array('id' => 'course_subname', 'name' => 'course_subname', 'placeholder' => 'course_subname')); ?><br />
+
+            <?php echo form_label('les_time :'); ?> <?php echo form_error('les_time'); ?><br />
+            <?php echo form_input(array('id' => 'les_time', 'name' => 'les_time', 'placeholder' => 'les_time')); ?><br />
+
+            <?php echo form_label('les_date :'); ?> <?php echo form_error('les_date'); ?><br />
+            <?php echo form_input(array('id' => 'les_date', 'name' => 'les_date', 'placeholder' => 'les_date')); ?><br />
+
+            <?php echo form_submit(array('id' => 'submit', 'value' => 'Submit')); ?>
+            <?php echo form_close(); ?><br/>
         </div>
+
         <div class="edit cancelled lecture">
-            <?php echo anchor('site?'. $row->Id, 'EDIT'); ?>     
+            <?php echo anchor('editcanclectbackend'. $row->Id, 'EDIT'); ?>
         </div>

@@ -96,6 +96,7 @@ class Staff_Model extends CI_Model {
     public function delete_staff($id) {
         $this->db->where_in('id', $id)->delete('tbl_staff');
     }
+
     function delete_row()
   {
    $this->db->where('id', $this->uri->segment(3));

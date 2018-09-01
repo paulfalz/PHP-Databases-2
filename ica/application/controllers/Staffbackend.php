@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Canclectbackend extends CI_Controller {
+class Staffbackend extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,11 +20,11 @@ class Canclectbackend extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('canclectbackend');
+		$this->load->view('staffbackend');
 
 
     $data = array();
-    if($query = $this->CancLect_Model->get_records()){
+    if($query = $this->Staff_Model->get_records()){
       $data['records'] = $query;
     }
       $arr = $_SERVER['REQUEST_URI'];
@@ -32,14 +32,14 @@ class Canclectbackend extends CI_Controller {
         $questionmark = explode('?', $arr);
         $number = $questionmark[1];
         if(is_numeric ($number)){
-          $this->load->view('editcanclectbackend');
+          $this->load->view('editstaff');
         }else{
           //LOAD TABLE (because ? without no ?id)
-          $this->load->view('tbl_canclect',$data);
+          $this->load->view('tbl_staff',$data);
         }
       }else{
           //LOAD TABLE (becuase there is no ?id)
-          $this->load->view('tbl_canclect',$data);
+          $this->load->view('tbl_staff',$data);
 	}
 }
 	function create()
@@ -47,16 +47,12 @@ class Canclectbackend extends CI_Controller {
 	    $data = array(
 	      'staff_name' => $this->input->post('staff_name'),
 	      'staff_surname' => $this->input->post('staff_surname'),
-		  'course_name' => $this->input->post('course_name'),
-		  'course_level' => $this->input->post('course_level'),
-		  'course_group' => $this->input->post('course_group'),
-		  'course_subname' => $this->input->post('course_subname'),
-		  'les_time' => $this->input->post('les_time'),
-		  'les_date' => $this->input->post('les_date')
+		  'staff_subject' => $this->input->post('staff_subject'),
+		  'staff_email' => $this->input->post('staff_email'),
 
 	    );
 
-	    $this->CancLect_Model->add_record($data);
+	    $this->Staff_Model->add_record($data);
 	    $this->index();
 	  }
 
@@ -64,17 +60,13 @@ class Canclectbackend extends CI_Controller {
 	    $id = $this->input->post('id'); // send id to model
 	      $data['staff_name'] = $this->input->post('staff_name');
 	      $data['staff_surname'] = $this->input->post('staff_surname');
-		  $data['course_name'] = $this->input->post('course_name');
-		  $data['course_level'] = $this->input->post('course_level');
-		  $data['course_group'] = $this->input->post('course_group');
-		  $data['course_subname'] = $this->input->post('course_subname');
-		  $data['les_time'] = $this->input->post('les_time');
-		  $data['les_date'] = $this->input->post('les_date');
-	    $this->CancLect_Model->update_record($data, $id);
+		  $data['staff_subject'] = $this->input->post('staff_subject');
+		  $data['staff_email'] = $this->input->post('staff_email');
+	    $this->Staff_Model->update_record($data, $id);
 	  }
 
 	  function delete()
 	  {
-	    $this->CancLect_Model->delete_row();
+	    $this->Staff_Model->delete_row();
 	    $this->index();
 	  }

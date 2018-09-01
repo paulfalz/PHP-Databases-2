@@ -25,19 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('lecturerbackend');?>">Lecturer</a>
+                            <a class="nav-link text-white" href="<?=site_url('staffbackend');?>">Staff</a>
                         </li>
                         <li class="nav-item acitve">
                             <a class="nav-link text-white" href="<?=site_url('canclectbackend');?>">Cancelled Lectures</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('studentportbackend');?>">Student Portfolio</a>
+                            <a class="nav-link text-white" href="<?=site_url('studentpbackend');?>">Student Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="<?=site_url('vacbackend');?>">Vacancies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('registerbackend');?>">Sign Up</a>
+                            <a class="nav-link text-white" href="<?=site_url('register');?>">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <?=  anchor('logout', 'Logout', 'class = nav-link'); ?>
@@ -46,12 +46,33 @@
                 </div>
             </div>
         </nav>
-        <div class="add_lecturer">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+        <div id="container-fluid" style= "padding: 30px;">
+            <?php echo form_open('staff_submit'); ?>
+            <h1>Add Vacancy</h1><hr/>
+            <?php if (isset($message)) { ?>
+            <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
+            <?php } ?>
+            <?php echo form_label('job_place :'); ?> <?php echo form_error('job_place'); ?><br />
+            <?php echo form_input(array('id' => 'job_place', 'name' => 'job_place', 'placeholder' => 'job_place')); ?><br />
+
+            <?php echo form_label('job_subject :'); ?> <?php echo form_error('job_subject'); ?><br />
+            <?php echo form_input(array('id' => 'job_subject', 'name' => 'job_subject', 'placeholder' => 'job_subject')); ?><br />
+
+            <?php echo form_label('job_type:'); ?> <?php echo form_error('job_type'); ?><br />
+            <?php echo form_input(array('id' => 'job_type', 'name' => 'job_type', 'placeholder' => 'job_type')); ?><br />
+
+            <?php echo form_submit(array('id' => 'submit', 'value' => 'Submit')); ?>
+            <?php echo form_close(); ?><br/>
         </div>
+        </body>
 
         <div class="vacbackend">
-            <?php echo anchor('site?'. $row->Id, 'EDIT'); ?> 
+            <?php echo anchor('editvacbackend'. $row->Id, 'EDIT'); ?>
         </div>
+
+        <div class="delete vac">
+            <?php echo anchor('site?'. $row->Id, 'DEL'); ?>
+        </div>
+
+</html>

@@ -21,18 +21,23 @@
       ?>
 
       <p>
-        <label for="job_place">job_place:</label>
-        <input type="text" name="job_place" id="job_place" value="<?php echo $row->job_place; ?>" />
+        <label for="staff_name">staff_name:</label>
+        <input type="text" name="staff_name" id="staff_name" value="<?php echo $row->staff_name; ?>" />
       </p>
 
       <p>
-        <label for="job_subject">job_subject:</label>
-        <input type="text" name="job_subject" id="job_subject" value="<?php echo $row->job_subject; ?>" />
+        <label for="staff_surname">staff_surname:</label>
+        <input type="text" name="staff_surname" id="staff_surname" value="<?php echo $row->staff_surname; ?>" />
       </p>
 
       <p>
-        <label for="job_type">job_type:</label>
-        <input type="text" name="job_type" id="job_type" value="<?php echo $row->job_type; ?>" />
+        <label for="staff_subject">staff_subject:</label>
+        <input type="text" name="staff_subject" id="staff_subject" value="<?php echo $row->staff_subject; ?>" />
+      </p>
+
+      <p>
+        <label for="staff_email">staff_email:</label>
+        <input type="text" name="staff_email" id="staff_email" value="<?php echo $row->staff_email; ?>" />
       </p>
 
       <input type="hidden" name="id" value="<?php echo $id; ?>" />

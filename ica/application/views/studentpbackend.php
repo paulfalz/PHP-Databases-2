@@ -46,8 +46,6 @@
                 </div>
             </div>
         </nav>
-
-        <body>
             <div id="container-fluid" style= "padding: 30px;">
                 <?php echo form_open('staff_submit'); ?>
                 <h1>Add Student</h1><hr/>

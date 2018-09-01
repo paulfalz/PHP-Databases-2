@@ -33,7 +33,7 @@ class Canclect extends CI_Controller {
 		$this->load->view('templates/bottom');
 	}
 
-	public function addcanclect()
+	public function add_canclect()
 	{
 		$data = array(
             'page_title'    => 'Cancelled Lectures',

@@ -31,7 +31,7 @@ class Studentportbackend extends CI_Controller {
 			$questionmark = explode('?', $arr);
 			$number = $questionmark[1];
 			if(is_numeric ($number)){
-			  $this->load->view('edit_record');
+			  $this->load->view('editstudentp');
 			}else{
 			  //LOAD TABLE (because ? without no ?id)
 			  $this->load->view('tbl_portfolio',$data);
@@ -53,10 +53,10 @@ class Studentportbackend extends CI_Controller {
 		  'stud_link' => $this->input->post('stud_link')
 		);
 
-		$this->site_model->add_record($data);
+		$this->Studentp_Model->add_record($data);
 		$this->index();
 	  }
-	
+
 	  function update(){
 		$id = $this->input->post('id'); // send id to model
 		  $data['student_name'] = $this->input->post('student_name');

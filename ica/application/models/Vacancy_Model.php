@@ -76,26 +76,6 @@ class Vacancy_Model extends CI_Model {
         return $this->db->get_where('tbl_vacancy', $data)->num_rows() == 1;
 
     }
-    function get_records()
-    {
-         $query = $this->db->get('assets');
-         return $query->result();
-        // $query = $this->db->query('SELECT * FROM assets');
-        //echo $this->table->generate($query);
-    }
-
-    function add_record($data)
-    {
-        $this->db->insert('assets', $data);
-        return;
-    }
-
-    function update_record($data, $id)
-    {
-        $this->db->where('id', $id); // here is the id
-        $this->db->update('assets', $data);
-        redirect(site_url('site')); //redirect after done update process
-    }
 
     function delete_row()
        {

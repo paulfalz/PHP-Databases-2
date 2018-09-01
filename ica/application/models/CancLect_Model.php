@@ -30,7 +30,7 @@ class CancLect_Model extends CI_Model {
 		// these lines are preparing the
 		// query to be run.
 		$this->db->select('*')
-				 ->order_by('staff_name', 'asc');
+				 ->order_by('course_name', 'asc');
 
 		// run the query using the parameters
 		// above and below.
@@ -105,30 +105,10 @@ class CancLect_Model extends CI_Model {
 
     }
 
-    function get_records()
-    {
-         $query = $this->db->get('assets');
-         return $query->result();
-        // $query = $this->db->query('SELECT * FROM assets');
-        //echo $this->table->generate($query);
-    }
-
-    function add_record($data)
-    {
-        $this->db->insert('assets', $data);
-        return;
-    }
-
-    function update_record($data, $id)
-    {
-        $this->db->where('id', $id);
-        $this->db->update('assets', $data);
-        redirect(site_url('site')); //redirect after done update process
-    }
     function delete_row()
        {
         $this->db->where('id', $this->uri->segment(3));
-        $this->db->delete('assets');
+        $this->db->delete('tbl_canclect');
 
        }
 
