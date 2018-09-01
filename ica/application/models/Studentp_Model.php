@@ -78,14 +78,14 @@ class Studentp_Model extends CI_Model {
         if (!empty($course_level)) $data['course_level'] = $course_level;
         if (!empty($stud_link)) $data['stud_link'] = $stud_link;
         // TRUE or FALSE if there has been a change
-        return $this->db->get_where('tbl_studentp', $data)->num_rows() == 1;
+        return $this->db->get_where('tbl_portfolio', $data)->num_rows() == 1;
 
     }
     public function unique_email($id, $student_name) {
 
         $data = array(
             'id !='     => $id,
-            '$student_name'     => $student_name
+            'student_name'     => $student_name
         );
 
         // will give me a true or false depending
@@ -97,7 +97,7 @@ class Studentp_Model extends CI_Model {
     function delete_row()
        {
         $this->db->where('id', $this->uri->segment(3));
-        $this->db->delete('tbl_canclect');
+        $this->db->delete('tbl_portfolio');
 
        }
 

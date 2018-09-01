@@ -76,7 +76,7 @@ class Vacbackend extends CI_Controller {
   function show_vacancies_id() {
   $id = $this->uri->segment(3);
   $data['tbl_vacancy'] = $this->Vacancy_Model->show_vacancies();
-  $data['single_student'] = $this->Vacancy_Model->show_vacancies_id($id);
+  $data['single_vacancies'] = $this->Vacancy_Model->show_vacancies_id($id);
   $this->load->view('deletevacbackend', $data);
   }
   // Function to Delete selected record from database.

@@ -15,9 +15,9 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="<?=site_url('backend');?>" class="logo">
+                    <a href="<?=site_url('/');?>" class="logo">
                     <img src="<?=base_url('images/solid_normal.png');?>" alt="logo" width="156px" height="56px" float="left">
-                    <a class="navbar-brand font-small" href="<?=site_url('backend');?>"><p>Institute for <br> the Creative Arts</p></a>
+                    <a class="navbar-brand font-small" href="<?=site_url('/');?>"><p>Institute for <br> the Creative Arts</p></a>
                 </div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
                     <span class="navbar-toggler-icon"></span>
@@ -25,19 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('lecturerbackend');?>">Lecturer</a>
+                            <a class="nav-link text-white" href="<?=site_url('staffbackend');?>">Staff</a>
                         </li>
                         <li class="nav-item acitve">
                             <a class="nav-link text-white" href="<?=site_url('canclectbackend');?>">Cancelled Lectures</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('studentportbackend');?>">Student Portfolio</a>
+                            <a class="nav-link text-white" href="<?=site_url('studentpbackend');?>">Student Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="<?=site_url('vacbackend');?>">Vacancies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('registerbackend');?>">Sign Up</a>
+                            <a class="nav-link text-white" href="<?=site_url('register');?>">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <?=  anchor('logout', 'Logout', 'class = nav-link'); ?>
