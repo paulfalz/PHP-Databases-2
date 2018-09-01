@@ -81,7 +81,7 @@ class Studentportbackend extends CI_Controller {
 	  $id = $this->uri->segment(3);
 	  $data['tbl_portfolio'] = $this->Studentp_Model->show_studentp();
 	  $data['single_student'] = $this->Studentp_Model->show_studentp_id($id);
-	  $this->load->view('delete_view', $data);
+	  $this->load->view('deletestudentp', $data);
 	  }
 	  // Function to Delete selected record from database.
 	  function delete_studentp_id() {

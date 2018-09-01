@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 02:18 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.0.23
+-- Generation Time: Sep 01, 2018 at 10:09 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,7 +46,8 @@ CREATE TABLE `tbl_canclect` (
   `course_group` varchar(500) NOT NULL,
   `course_subname` varchar(500) NOT NULL,
   `les_time` varchar(500) NOT NULL,
-  `les_date` varchar(500) NOT NULL
+  `les_date` varchar(500) NOT NULL,
+  `canclect_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -60,7 +61,8 @@ CREATE TABLE `tbl_portfolio` (
   `student_surname` varchar(500) NOT NULL,
   `course_name` varchar(500) NOT NULL,
   `course_level` varchar(500) NOT NULL,
-  `stud_link` varchar(500) NOT NULL
+  `stud_link` varchar(500) NOT NULL,
+  `studentp_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,7 +76,8 @@ CREATE TABLE `tbl_staff` (
   `staff_name` tinytext NOT NULL,
   `staff_surname` tinytext NOT NULL,
   `staff_subject` tinytext NOT NULL,
-  `staff_email` tinytext NOT NULL
+  `staff_email` tinytext NOT NULL,
+  `staff_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,8 +89,59 @@ CREATE TABLE `tbl_staff` (
 CREATE TABLE `tbl_vacancy` (
   `job_place` varchar(500) NOT NULL,
   `job_subject` varchar(500) NOT NULL,
-  `job_type` varchar(500) NOT NULL
+  `job_type` varchar(500) NOT NULL,
+  `vacancy_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_canclect`
+--
+ALTER TABLE `tbl_canclect`
+  ADD PRIMARY KEY (`canclect_id`);
+
+--
+-- Indexes for table `tbl_portfolio`
+--
+ALTER TABLE `tbl_portfolio`
+  ADD PRIMARY KEY (`studentp_id`);
+
+--
+-- Indexes for table `tbl_staff`
+--
+ALTER TABLE `tbl_staff`
+  ADD PRIMARY KEY (`staff_id`);
+
+--
+-- Indexes for table `tbl_vacancy`
+--
+ALTER TABLE `tbl_vacancy`
+  ADD PRIMARY KEY (`vacancy_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_canclect`
+--
+ALTER TABLE `tbl_canclect`
+  MODIFY `canclect_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_staff`
+--
+ALTER TABLE `tbl_staff`
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_vacancy`
+--
+ALTER TABLE `tbl_vacancy`
+  MODIFY `vacancy_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

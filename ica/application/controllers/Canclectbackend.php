@@ -83,7 +83,7 @@ class Canclectbackend extends CI_Controller {
 	  $id = $this->uri->segment(3);
 	  $data['tbl_canclect'] = $this->CancLect_Model->show_canclect();
 	  $data['single_student'] = $this->CancLect_Model->show_canclect_id($id);
-	  $this->load->view('delete_view', $data);
+	  $this->load->view('deletecanclectbackend', $data);
 	  }
 	  // Function to Delete selected record from database.
 	  function delete_canclect_id() {
