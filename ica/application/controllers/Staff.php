@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Studentport extends CI_Controller {
+class Staff extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +21,7 @@ class Studentport extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('templates/top');
-		$this->load->view('studentport');
+		$this->load->view('staff');
 		$this->load->view('templates/bottom');
 
 		public function addstudentp()
@@ -102,6 +102,6 @@ class Studentport extends CI_Controller {
 			redirect('/');
 		}
 		}
-				
+
 	}
 }

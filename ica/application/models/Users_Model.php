@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users_Model extends CI_Model {
 
-    public function add_user($u_name, $u_email, $u_password) {
+    public function add_admin($u_name, $u_email, $u_password) {
 
         $data = array(
             'u_name'      => $u_name,
@@ -12,8 +12,8 @@ class Users_Model extends CI_Model {
         );
 
         // An INSERT query:
-        // INSERT INTO tbl_users (cols) VALUES (cols)
-        $this->db->insert('tbl_users', $data);
+        // INSERT INTO tbl_admin (cols) VALUES (cols)
+        $this->db->insert('tbl_admin', $data);
 
         // gives us whatever the primary key (AI) value is
         return $this->db->insert_id();
@@ -29,7 +29,7 @@ class Users_Model extends CI_Model {
 
 		// run the query using the parameters
 		// above and below.
-		return $this->db->get('tbl_users');
+		return $this->db->get('tbl_admin');
 
 	}
 
@@ -38,7 +38,7 @@ class Users_Model extends CI_Model {
         // run a query and return the row immediately
         return $this->db->select('*')
                         ->where('id', $id)
-                        ->get('tbl_users')
+                        ->get('tbl_admin')
                         ->row_array();
 
     }
@@ -57,7 +57,7 @@ class Users_Model extends CI_Model {
 
         // this is the entire update query
         $this->db->where('id', $id)
-                 ->update('tbl_users', $data);
+                 ->update('tbl_admin', $data);
 
         // TRUE or FALSE if there has been a change
         return $this->db->affected_rows() == 1;
@@ -73,7 +73,7 @@ class Users_Model extends CI_Model {
         if (!empty($u_password)) $data['u_password'] = $u_password;
 
         // TRUE or FALSE if there has been a change
-        return $this->db->get_where('tbl_users', $data)->num_rows() == 1;
+        return $this->db->get_where('tbl_admin', $data)->num_rows() == 1;
 
     }
 
@@ -86,12 +86,13 @@ class Users_Model extends CI_Model {
 
         // will give me a true or false depending
         // on what comes up from the query
-        return $this->db->get_where('tbl_users', $data)->num_rows() == 0;
+        return $this->db->get_where('tbl_admin', $data)->num_rows() == 0;
 
     }
 
     public function delete_user($id) {
-        $this->db->where_in('id', $id)->delete('tbl_users');
+        $this->db->where_in('id', $id)->delete('tbl_admin');
     }
 
 }
+ 

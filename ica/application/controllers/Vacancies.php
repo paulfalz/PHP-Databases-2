@@ -30,29 +30,24 @@ class Vacancies extends CI_Controller {
 				'page_title'    => 'Vancancy',
 				'form_action'   => 'Enter/submit',
 				'form'          => array(
-					'vacimage'         => array(
-						'type'          => 'vacimage',
-						'placeholder'   => 'vacimage',
-						'name'          => 'vacimage',
-						'id'            => 'input-vacimage'
+
+					'job_place'         => array(
+						'type'          => 'job_place',
+						'placeholder'   => 'job_place',
+						'name'          => 'job_place',
+						'id'            => 'input-job_place'
 					),
-					'vacname'         => array(
-						'type'          => 'vacname',
-						'placeholder'   => 'vacname',
-						'name'          => 'vacname',
-						'id'            => 'input-vacname'
+					'job_subject'      => array(
+						'type'          => 'job_subject',
+						'placeholder'   => 'job_subject',
+						'name'          => 'job_subject',
+						'id'            => 'input-job_subject'
 					),
-					'vacsubject'      => array(
-						'type'          => 'vacsubject',
-						'placeholder'   => 'vacsubject',
-						'name'          => 'vacsubject',
-						'id'            => 'input-vacsubject'
-					),
-					'vactype'      => array(
-						'type'          => 'vactype',
-						'placeholder'   => 'vactype',
-						'name'          => 'vactype',
-						'id'            => 'input-vactype'
+					'job_type'      => array(
+						'type'          => 'job_type',
+						'placeholder'   => 'job_type',
+						'name'          => 'job_type',
+						'id'            => 'input-job_type'
 					)
 
 				),
@@ -77,13 +72,13 @@ class Vacancies extends CI_Controller {
 				}
 
 				# 2. Retrieve the data for checking
-				$vacimage      = $this->input->post('vacimage');
-				$vacname      = $this->input->post('vacname');
-				$vacsubject   = $this->input->post('vacsubject');
+				$job_place    = $this->input->post('job_place');
+				$job_subject     = $this->input->post('job_subject');
+				$job_type   = $this->input->post('job_type');
 		#
-				$id = $this->system->add_vacancy($vacimage, $vacname, $vacsubject,$vactype);
+				$id = $this->system->add_vacancy($job_place, $job_subject, $job_type);
 
-			$check = $this->system->Vacancy($vacimage, $vacname, $vacsubject,$vactype);
+			$check = $this->system->Vacancy($job_place, $job_subject, $job_type);
 
 			if ($check === FALSE)
 			{

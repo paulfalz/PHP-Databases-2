@@ -22,4 +22,57 @@ class Studentportbackend extends CI_Controller {
 	{
 		$this->load->view('studentportbackend');
 	}
+	$data = array();
+		if($query = $this->Studentp_Model->get_records()){
+		  $data['records'] = $query;
+		}
+		  $arr = $_SERVER['REQUEST_URI'];
+		  if (preg_match('#[0-9]#',$arr)){
+			$questionmark = explode('?', $arr);
+			$number = $questionmark[1];
+			if(is_numeric ($number)){
+			  $this->load->view('edit_record');
+			}else{
+			  //LOAD TABLE (because ? without no ?id)
+			  $this->load->view('tbl_portfolio',$data);
+			}
+		  }else{
+			  //LOAD TABLE (becuase there is no ?id)
+			  $this->load->view('tbl_portfolio',$data);
+		  }
+
+	  } // end index
+
+	  function create()
+	  {
+		$data = array(
+		  'student_name' => $this->input->post('student_name'),
+		  'student_surname' => $this->input->post('student_surname'),
+		  'course_name' => $this->input->post('course_name'),
+		  'course_level' => $this->input->post('course_level'),
+		  'stud_link' => $this->input->post('stud_link')
+		);
+
+		$this->site_model->add_record($data);
+		$this->index();
+	  }
+	
+	  function update(){
+		$id = $this->input->post('id'); // send id to model
+		  $data['student_name'] = $this->input->post('student_name');
+		  $data['student_surname'] = $this->input->post('student_surname');
+		  $data['course_name'] = $this->input->post('course_name');
+		  $data['course_level'] = $this->input->post('course_level');
+		  $data['stud_link'] = $this->input->post('stud_link');
+		$this->Studentp_Model->update_record($data, $id);
+	  }
+
+
+
+
+	  function delete()
+	  {
+		$this->Studentp_Model->delete_row();
+		$this->index();
+	  }
 }

@@ -25,19 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('lecturerbackend');?>">Lecturer</a>
+                            <a class="nav-link text-white" href="<?=site_url('staffbackend');?>">Staff</a>
                         </li>
                         <li class="nav-item acitve">
                             <a class="nav-link text-white" href="<?=site_url('canclectbackend');?>">Cancelled Lectures</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('studentportbackend');?>">Student Portfolio</a>
+                            <a class="nav-link text-white" href="<?=site_url('studentpbackend');?>">Student Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="<?=site_url('vacbackend');?>">Vacancies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="<?=site_url('registerbackend');?>">Sign Up</a>
+                            <a class="nav-link text-white" href="<?=site_url('register');?>">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <?=  anchor('logout', 'Logout', 'class = nav-link'); ?>
@@ -46,8 +46,39 @@
                 </div>
             </div>
         </nav>
-        <div class="add_lecturer">
-            <a href="staffbackend">
-                <button style="padding:10px; margin-top:50px; margin-left:30px;">Click me</button>
-            </a>
+
+        <body>
+            <div id="container-fluid" style= "padding: 30px;">
+                <?php echo form_open('staff_submit'); ?>
+                <h1>Add Student</h1><hr/>
+                <?php if (isset($message)) { ?>
+                <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
+                <?php } ?>
+                <?php echo form_label('Student Name :'); ?> <?php echo form_error('student_name'); ?><br />
+                <?php echo form_input(array('id' => 'student_name', 'name' => 'student_name', 'placeholder' => 'Name')); ?><br />
+
+                <?php echo form_label('Student Surname :'); ?> <?php echo form_error('student_surname'); ?><br />
+                <?php echo form_input(array('id' => 'student_surname', 'name' => 'student_surname', 'placeholder' => 'Surname')); ?><br />
+
+                <?php echo form_label('course name:'); ?> <?php echo form_error('course_name'); ?><br />
+                <?php echo form_input(array('id' => 'course_name', 'name' => 'course_name', 'placeholder' => 'course')); ?><br />
+
+                <?php echo form_label('Course Level:'); ?> <?php echo form_error('course_level'); ?><br />
+                <?php echo form_input(array('id' => 'course_level', 'name' => 'course_level', 'placeholder' => 'level')); ?><br />
+
+                <?php echo form_label('link:'); ?> <?php echo form_error('stud_link'); ?><br />
+                <?php echo form_input(array('id' => 'stud_link', 'name' => 'stud_link', 'placeholder' => 'www.link.com')); ?><br />
+
+                <?php echo form_submit(array('id' => 'submit', 'value' => 'Submit')); ?>
+                <?php echo form_close(); ?><br/>
+            </div>
+        </body>
+
+        <div class="edit student">
+            <?php echo anchor('editstudentp'. $row->Id, 'EDIT'); ?>
         </div>
+
+        <div class="delete student">
+            <?php echo anchor('site?'. $row->Id, 'DEL'); ?>
+        </div>
+</html>
