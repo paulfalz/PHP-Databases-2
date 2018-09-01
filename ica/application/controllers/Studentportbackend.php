@@ -21,7 +21,7 @@ class Studentportbackend extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('studentportbackend');
-	}
+
 	$data = array();
 		if($query = $this->Studentp_Model->get_records()){
 		  $data['records'] = $query;
@@ -75,4 +75,19 @@ class Studentportbackend extends CI_Controller {
 		$this->Studentp_Model->delete_row();
 		$this->index();
 	  }
+
+	  // Function to Fetch selected record from database.
+	  function show_studentp_id() {
+	  $id = $this->uri->segment(3);
+	  $data['tbl_portfolio'] = $this->Studentp_Model->show_studentp();
+	  $data['single_student'] = $this->Studentp_Model->show_studentp_id($id);
+	  $this->load->view('delete_view', $data);
+	  }
+	  // Function to Delete selected record from database.
+	  function delete_studentp_id() {
+	  $id = $this->uri->segment(3);
+	  $this->Studentp_Model->delete_studentp_id($id);
+	  $this->show_studentp_id();
+  	  }
 }
+?>

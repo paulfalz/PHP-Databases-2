@@ -70,3 +70,19 @@ class Staffbackend extends CI_Controller {
 	    $this->Staff_Model->delete_row();
 	    $this->index();
 	  }
+	  // Function to Fetch selected record from database.
+	  function show_staff_id() {
+	  $id = $this->uri->segment(3);
+	  $data['tbl_staff'] = $this->Staff_Model->show_staff();
+	  $data['single_student'] = $this->Staff_Model->show_staff_id($id);
+	  $this->load->view('delete_view', $data);
+	  }
+	  // Function to Delete selected record from database.
+	  function delete_staff_id() {
+	  $id = $this->uri->segment(3);
+	  $this->Staff_Model->delete_staff_id($id);
+	  $this->show_staff_id();
+	  }
+}
+
+?>

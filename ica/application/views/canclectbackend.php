@@ -48,7 +48,7 @@
         </nav>
 
         <div id="container-fluid" style= "padding: 30px;">
-            <?php echo form_open('staff_submit'); ?>
+            <?php echo form_open('canclect_submit'); ?>
             <h1>Add Cancelled Lectures</h1><hr/>
             <?php if (isset($message)) { ?>
             <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
@@ -77,4 +77,8 @@
 
         <div class="edit cancelled lecture">
             <?php echo anchor('editcanclectbackend'. $row->Id, 'EDIT'); ?>
+        </div>
+
+        <div class="delete cancelled lecture">
+            <?php echo anchor('deletecanclectbackend'. $row->Id, 'DEL'); ?>
         </div>

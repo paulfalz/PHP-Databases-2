@@ -103,4 +103,25 @@ class Staff_Model extends CI_Model {
    $this->db->delete('tbl_staff');
 
   }
+
+  //deleting process
+  function show_staff(){
+  $query = $this->db->get('tbl_staff');
+  $query_result = $query->result();
+  return $query_result;
+  }
+  //function to select particular record from table name
+  function show_staff_id($data){
+     $this->db->select('*');
+     $this->db->from('tbl_staff');
+     $this->db->where('id', $data);
+     $query = $this->db->get();
+     $result = $query->result();
+     return $result;
+   }
+  //function to Delete selected record from table name
+  function delete_staff_id($id){
+     $this->db->where('id', $id);
+     $this->db->delete('tbl_staff');
+   }
 }

@@ -80,7 +80,28 @@ class Vacancy_Model extends CI_Model {
     function delete_row()
        {
         $this->db->where('id', $this->uri->segment(3));
-        $this->db->delete('assets');
+        $this->db->delete('tbl_vacancy');
 
        }
+
+    //deleting process
+    function show_vacancies(){
+    $query = $this->db->get('tbl_vacancy');
+    $query_result = $query->result();
+    return $query_result;
+    }
+    //function to select particular record from table name
+    function show_vacancies_id($data){
+       $this->db->select('*');
+       $this->db->from('tbl_vacancy');
+       $this->db->where('id', $data);
+       $query = $this->db->get();
+       $result = $query->result();
+       return $result;
+     }
+    //function to Delete selected record from table name
+    function delete_vacancies_id($id){
+       $this->db->where('id', $id);
+       $this->db->delete('tbl_vacancy');
+     }
 }

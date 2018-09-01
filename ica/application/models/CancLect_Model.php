@@ -112,4 +112,25 @@ class CancLect_Model extends CI_Model {
 
        }
 
+       //deleting process
+       function show_canclect(){
+       $query = $this->db->get('tbl_canclect');
+       $query_result = $query->result();
+       return $query_result;
+       }
+       //function to select particular record from table name
+       function show_canclect_id($data){
+          $this->db->select('*');
+          $this->db->from('tbl_canclect');
+          $this->db->where('id', $data);
+          $query = $this->db->get();
+          $result = $query->result();
+          return $result;
+        }
+       //function to Delete selected record from table name
+       function delete_canclect_id($id){
+          $this->db->where('id', $id);
+          $this->db->delete('tbl_canclect');
+        }
+
 }

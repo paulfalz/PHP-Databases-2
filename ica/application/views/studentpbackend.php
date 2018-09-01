@@ -77,6 +77,6 @@
         </div>
 
         <div class="delete student">
-            <?php echo anchor('site?'. $row->Id, 'DEL'); ?>
+            <?php echo anchor('deletestudentp'. $row->Id, 'DEL'); ?>
         </div>
 </html>

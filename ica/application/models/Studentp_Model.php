@@ -101,4 +101,25 @@ class Studentp_Model extends CI_Model {
 
        }
 
+       //deleting process
+       function show_studentp(){
+       $query = $this->db->get('tbl_portfolio');
+       $query_result = $query->result();
+       return $query_result;
+       }
+       //function to select particular record from table name
+       function show_studentp_id($data){
+          $this->db->select('*');
+          $this->db->from('tbl_portfolio');
+          $this->db->where('id', $data);
+          $query = $this->db->get();
+          $result = $query->result();
+          return $result;
+        }
+       //function to Delete selected record from table name
+       function delete_studentp_id($id){
+          $this->db->where('id', $id);
+          $this->db->delete('tbl_portfolio');
+        }
+
 }

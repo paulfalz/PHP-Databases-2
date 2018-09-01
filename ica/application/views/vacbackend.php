@@ -72,7 +72,7 @@
         </div>
 
         <div class="delete vac">
-            <?php echo anchor('site?'. $row->Id, 'DEL'); ?>
+            <?php echo anchor('deletevacbackend'. $row->Id, 'DEL'); ?>
         </div>
 
 </html>
